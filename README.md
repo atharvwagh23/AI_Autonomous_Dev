@@ -170,13 +170,13 @@ The UI opens at `http://localhost:8501`.
 
 The CLI walks through the full agent pipeline — **Developer → Review → QA → Fix (if needed) → Report** — printing each stage as it runs, and clearly shows the self-correction loop in action when QA flags an issue.
 
-![CLI Full Run](photos_output/cli-full-run.png)
+![CLI Full Run](photos_output/cli-full-run.jpg)
 
 ### 2️⃣ The payoff — final engineering report
 
 Once QA passes (or the fix-iteration limit is reached), the graph produces a structured final report along with an execution summary.
 
-![CLI Final Report](photos_output/cli-final-report.png)
+![CLI Final Report](photos_output/cli-final-report.jpg)
 
 ### 3️⃣ Proof it's real, runnable code
 
@@ -187,7 +187,7 @@ cd output_main_cli
 python -c "from generated_code import is_palindrome; print('racecar:', is_palindrome('racecar')); print('hello:', is_palindrome('hello'));"
 ```
 
-![Generated Code Output](photos_output/generated_code_output.png)
+![Generated Code Output](photos_output/generated_code_output.jpg)
 
 ---
 
@@ -197,7 +197,7 @@ python -c "from generated_code import is_palindrome; print('racecar:', is_palind
 
 A clean, tabbed UI to enter a requirement and kick off the full agent workflow with one click.
 
-![Streamlit Input](photos_output/streamlit-input.png)
+![Streamlit Input](photos_output/streamlit-input.jpg)
 
 ### 2️⃣ Full demo video
 
