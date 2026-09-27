@@ -142,3 +142,96 @@ python -m venv .venv
 ### 4. Set up your `.env` file
 
 Create a `.env` file in the project root:
+```
+GROQ_API_KEY=your_actual_groq_api_key_here
+```
+
+Get a free key from [console.groq.com](https://console.groq.com/keys).
+
+### 5. Run the CLI version
+
+```bash
+.venv\Scripts\python.exe main.py
+```
+
+### 6. Run the Streamlit version
+
+```bash
+.venv\Scripts\python.exe -m streamlit run streamlit_app.py
+```
+
+The UI opens at `http://localhost:8501`.
+
+---
+
+## 🖥️ Output — CLI (`main.py`)
+
+### 1️⃣ Running the workflow
+
+The CLI walks through the full agent pipeline — **Developer → Review → QA → Fix (if needed) → Report** — printing each stage as it runs, and clearly shows the self-correction loop in action when QA flags an issue.
+
+![CLI Full Run](photos_output/cli-full-run.png)
+
+### 2️⃣ The payoff — final engineering report
+
+Once QA passes (or the fix-iteration limit is reached), the graph produces a structured final report along with an execution summary.
+
+![CLI Final Report](photos_output/cli-final-report.png)
+
+### 3️⃣ Proof it's real, runnable code
+
+The generated code is saved to `output_main_cli/generated_code.py`. Importing and running it confirms the AI-written function actually works correctly:
+
+```bash
+cd output_main_cli
+python -c "from generated_code import is_palindrome; print('racecar:', is_palindrome('racecar')); print('hello:', is_palindrome('hello'));"
+```
+
+![Generated Code Output](photos_output/generated_code_output.png)
+
+---
+
+## 🌐 Output — Streamlit App
+
+### 1️⃣ The interface
+
+A clean, tabbed UI to enter a requirement and kick off the full agent workflow with one click.
+
+![Streamlit Input](photos_output/streamlit-input.png)
+
+### 2️⃣ Full demo video
+
+See the complete workflow live — requirement submission, real-time agent progress, results across tabs, and interactively testing the generated function.
+
+https://github.com/user-attachments/assets/langgraph-dev-team-demo
+
+---
+
+## ✅ Features
+
+| Feature | CLI | Streamlit |
+|---|:---:|:---:|
+| Full agent pipeline (Dev → Review → QA → Fix → Report) | ✅ | ✅ |
+| Self-correcting fix loop | ✅ | ✅ |
+| Saves generated code + execution JSON | ✅ | ✅ |
+| Interactive results view (tabs, metrics) | ❌ | ✅ |
+| Live testing of generated functions | ❌ | ✅ |
+| Separate output folders per interface | ✅ `output_main_cli/` | ✅ `output_streamlit/` |
+
+---
+
+## 🛠️ Tech Stack
+
+| Layer | Technology |
+|---|---|
+| Agent Orchestration | LangGraph |
+| LLM Framework | LangChain |
+| LLM Provider | Groq |
+| Frontend (optional) | Streamlit |
+| Language | Python 3.10+ |
+
+<div align="center">
+
+🚀 Built with **LangGraph**, **LangChain**, **Groq**, and **Streamlit**
+
+</div>
