@@ -203,7 +203,7 @@ A clean, tabbed UI to enter a requirement and kick off the full agent workflow w
 
 See the complete workflow live — requirement submission, real-time agent progress, results across tabs, and interactively testing the generated function.
 
-https://github.com/user-attachments/assets/langgraph-dev-team-demo
+https://github.com/user-attachments/photos_output/langgraph-dev-team-demo
 
 ---
 
